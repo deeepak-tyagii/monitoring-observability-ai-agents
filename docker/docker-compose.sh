@@ -68,6 +68,3 @@ fi
 
 # Run the command
 $DOCKER_CMD -f docker-compose.yaml up -d
-
-
-

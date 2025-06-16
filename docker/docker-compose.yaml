@@ -9,7 +9,6 @@ services:
       - "3200:3200"
     command: ["-config.file=/etc/tempo.yml"]
 
-
   prometheus:
     image: prom/prometheus:latest
     volumes:
@@ -19,6 +18,20 @@ services:
     command: 
       - "--web.enable-remote-write-receiver" 
       - "--config.file=/etc/prometheus/prometheus.yml"
+  node-exporter:
+    image: prom/node-exporter:latest
+    ports:
+      - "9100:9100"
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
+    depends_on:
+      - prometheus
   
   mimir:
     image: grafana/mimir:latest
@@ -31,7 +44,6 @@ services:
       - "--config.file=/etc/mimir/config.yaml"
     depends_on:
       - prometheus
-
 
   loki:
     image: grafana/loki:latest
@@ -73,6 +85,7 @@ services:
       - ./shared/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
       - ./shared/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
       - ./shared/grafana/dashboards:/var/lib/grafana/dashboards
+      - grafana_data:/var/lib/grafana
     environment:
       - GF_AUTH_ANONYMOUS_ENABLED=false
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
@@ -118,3 +131,4 @@ services:
 volumes:
   prometheus-data:
   tempo-data:
+  grafana_data:
