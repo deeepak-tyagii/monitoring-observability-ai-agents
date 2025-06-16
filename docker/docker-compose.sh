@@ -19,24 +19,24 @@ mkdir -p shared/grafana/provisioning/dashboards
 mkdir -p shared/grafana/dashboards
 
 # Download Tempo configuration
-curl -sSL -o shared/tempo/tempo.yml https://raw.githubusercontent.com/aussiearef/grafana-udemy/main/tempo/tempo.yml
+curl -sSL -o shared/tempo/tempo.yml https://raw.githubusercontent.com/deeepak-tyagii/monitoring-observability-ai-agents/refs/heads/main/tempo/tempo.yml
 
 # Download Prometheus configuration
-curl -sSL -o shared/prometheus/prometheus.yml https://raw.githubusercontent.com/aussiearef/grafana-udemy/main/prometheus/prometheus.yml
+curl -sSL -o shared/prometheus/prometheus.yml https://raw.githubusercontent.com/deeepak-tyagii/monitoring-observability-ai-agents/refs/heads/main/prometheus/prometheus.yml
 
 # Download Alloy configuration
-curl -sSL -o shared/alloy/config.alloy https://raw.githubusercontent.com/aussiearef/grafana-udemy/main/alloy/config.alloy
+curl -sSL -o shared/alloy/config.alloy https://raw.githubusercontent.com/deeepak-tyagii/monitoring-observability-ai-agents/refs/heads/main/alloy/config.alloy
 
 # Download Promtail (for Loki) configuration
-curl -sSL -o shared/promtail/config.yml https://raw.githubusercontent.com/aussiearef/grafana-udemy/main/loki/config.yml
+curl -sSL -o shared/promtail/config.yml https://raw.githubusercontent.com/deeepak-tyagii/monitoring-observability-ai-agents/refs/heads/main/loki/config.yml
 
 # Download Mimir configuration
-curl -sSL -o shared/mimir/config.yaml https://raw.githubusercontent.com/aussiearef/grafana-udemy/main/mimir/config.yaml
+curl -sSL -o shared/mimir/config.yaml https://raw.githubusercontent.com/deeepak-tyagii/monitoring-observability-ai-agents/refs/heads/main/mimir/config.yaml
 
 # Download Grafana dashboard and provisioning files
-curl -sSL -o shared/grafana/dashboards/ShoeHub_Dashboard.json https://raw.githubusercontent.com/aussiearef/grafana-udemy/main/grafana/ShoeHub_Dashboard.json
-curl -sSL -o shared/grafana/provisioning/dashboards/dashboards.yml https://raw.githubusercontent.com/aussiearef/grafana-udemy/main/grafana/dashboards.yml
-curl -sSL -o shared/grafana/provisioning/datasources/datasources.yml https://raw.githubusercontent.com/aussiearef/grafana-udemy/main/grafana/datasources.yml
+curl -sSL -o shared/grafana/dashboards/ShoeHub_Dashboard.json https://raw.githubusercontent.com/deeepak-tyagii/monitoring-observability-ai-agents/refs/heads/main/grafana/ShoeHub_Dashboard.json
+curl -sSL -o shared/grafana/provisioning/dashboards/dashboards.yml https://raw.githubusercontent.com/deeepak-tyagii/monitoring-observability-ai-agents/refs/heads/main/grafana/dashboards.yml
+curl -sSL -o shared/grafana/provisioning/datasources/datasources.yml https://raw.githubusercontent.com/deeepak-tyagii/monitoring-observability-ai-agents/refs/heads/main/grafana/datasources.yml
 
 # Create Tempo data folders if not exist
 mkdir -p tempo-data/traces
